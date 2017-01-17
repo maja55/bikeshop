@@ -5,7 +5,7 @@ one:
   last_name: MyString
   email: MyString
   password: MyString
-  street-housenr: MyString
+  street_housenr: MyString
   postcode: MyString
   city: MyString
   country: MyString
@@ -15,7 +15,7 @@ two:
   last_name: MyString
   email: MyString
   password: MyString
-  street-housenr: MyString
+  street_housenr: MyString
   postcode: MyString
   city: MyString
   country: MyString

@@ -1,10 +1,16 @@
 Product.delete_all
 User.delete_all
 
-# jeroen = User.create!({ first_name: "Jeroen", last_name: "Knol", email: "jeroen@knol.nl", password: "123456", street_housenr: "Example Lane 123", postcode: "1234AM", city: "Amsterdam", country: "The Netherlands"} )
-# maja = User.create!({ first_name: "Maja", last_name: "Podrug", email: "maja@podrug.nl", password: "123456", street_housenr: "Fake Street 234", postcode: "3456NY", city: "New York", country: "United States of America"} )
-# stefan = User.create!({ first_name: "Stefan", last_name: "Kollaart", email: "stefan@kollaart.nl", password: "123456", street_housenr: "Non Existend Road 345", postcode: "5678LO", city: "London", country: "United Kingdom"} )
-# nick = User.create!({ first_name: "Nick", last_name: "Winkelman", email: "nick@winkelman.nl", password: "123456", street_housenr: "Made Up Avenue 456", postcode: "7890PA", city: "Paris", country: "France"} )
+# email: "jeroen@knol.nl", password: "123456"
+# email: "maja@podrug.nl", password: "123456"
+# email: "stefan@kollaart.nl", postcode: "5678LO"
+# email: "nick@winkelman.nl", password: "123456"
+
+
+jeroen = Profile.create!({ first_name: "Jeroen", last_name: "Knol", street_housenr: "Example Lane 123", postcode: "1234AM", city: "Amsterdam", country: "The Netherlands"} )
+maja = Profile.create!({ first_name: "Maja", last_name: "Podrug", street_housenr: "Fake Street 234", postcode: "3456NY", city: "New York", country: "United States of America"} )
+stefan = Profile.create!({ first_name: "Stefan", last_name: "Kollaart", city: "London", country: "United Kingdom"} )
+nick = Profile.create!({ first_name: "Nick", last_name: "Winkelman", street_housenr: "Made Up Avenue 456", postcode: "7890PA", city: "Paris", country: "France"} )
 
 product1 = Product.create!({ brand: "Votec", model: "MTB Hardtail Pro", image: "#", price: 1999, category: "mountainbike", gender: "unisex", frame: "45" })
 product2 = Product.create!({ brand: "Haibike", model: "XDURO Hardseven", image: "#", price: 3999, category: "mountainbike", gender: "unisex", frame: "40" })

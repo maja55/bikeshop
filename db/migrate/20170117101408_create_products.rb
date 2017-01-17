@@ -3,7 +3,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
     create_table :products do |t|
       t.string :model
       t.string :brand
-      t.string :image
       t.float :price
       t.string :category
       t.string :gender

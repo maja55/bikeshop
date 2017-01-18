@@ -1,0 +1,19 @@
+<h1>Products</h1>
+
+<h2> Find Product by Category </h2>
+  <%= link_to "All", products_path %>
+  <%= link_to "Mountainbikes", products_path(:category=>"mountainbike") %>
+  <%= link_to "Citybikes", products_path(:category=>"citybike") %>
+  <%= link_to "Racebikes", products_path(:category=>"racebike") %>
+  <%= link_to "E-bikes", products_path(:category=>"ebike") %>
+
+  <hr>
+
+
+<% @products.each do |product| %>
+  <p><%= product.brand %></p>
+  <p><%= product.model %></p>
+  <p><%= product.gender %></p>
+  <p><%= product.category %></p>
+  <hr>
+<% end %>

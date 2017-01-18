@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
-  belongs_to :order
-  belongs_to :user, through: :order
-  
+  scope :mountainbike, -> {where(:category => 'mountainbike')}
+
+  def mountainbike
+    return Product.mountainbike
+  end
 end

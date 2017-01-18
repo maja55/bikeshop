@@ -1,19 +1,23 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = product.all.product_products_by_creation.reverse
+    if params[:category]
+      @products = Product.where(:category => params[:category])
+    else
+      @products = Product.all
+    end
   end
 
   def show
-    @product = product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new
-    @product = product.new
+    @product = Product.new
   end
 
   def create
-    @product = product.new(product_params)
+    @product = Product.new(product_params)
 
     if @product.save
       redirect_to @product
@@ -23,11 +27,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-      @product = product.find(params[:id])
+      @product = Product.find(params[:id])
   end
 
   def update
-    @product = product.find(params[:id])
+    @product = Product.find(params[:id])
 
     if @product.update_attributes(product_params)
       redirect_to @product
@@ -37,7 +41,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = product.find(params[:id])
+    @product = Product.find(params[:id])
 
     @product.destroy
 

@@ -12,7 +12,7 @@ maja = Profile.create!({ first_name: "Maja", last_name: "Podrug", street_housenr
 stefan = Profile.create!({ first_name: "Stefan", last_name: "Kollaart", street_housenr: "Non Existend Road 345", postcode: "5678LO", city: "London", country: "United Kingdom"} )
 nick = Profile.create!({ first_name: "Nick", last_name: "Winkelman", street_housenr: "Made Up Avenue 456", postcode: "7890PA", city: "Paris", country: "France"} )
 
-product1 = Product.create!({ brand: "Votec", model: "MTB Hardtail Pro", image: "#", price: 1999, category: "mountainbike", gender: "unisex", frame: "45" })
+product1 = Product.create!({ brand: "Votec", model: "MTB Hardtail Pro", image: "#", price: 1999, category: "mountainbike", gender: "unisex", frame: "45"})
 product2 = Product.create!({ brand: "Haibike", model: "XDURO Hardseven", image: "#", price: 3999, category: "mountainbike", gender: "unisex", frame: "40" })
 product3 = Product.create!({ brand: "Cube", model: "Elite C:62 Race", image: "#", price: 2999, category: "mountainbike", gender: "unisex", frame: "48" })
 product4 = Product.create!({ brand: "Cube", model: "Aim Allroad", image: "#", price: 499, category: "mountainbike", gender: "unisex", frame: "46" })

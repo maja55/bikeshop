@@ -3,8 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
-  has_many :orders
-  has_many :products, through: :orders
 
   def has_profile?
     profile.present? && !profile.id.nil?

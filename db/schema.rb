@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20170118163433) do
   create_table "products", force: :cascade do |t|
     t.string   "model"
     t.string   "brand"
-    t.string   "image"
     t.float    "price"
     t.string   "category"
     t.string   "gender"
     t.integer  "frame"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"

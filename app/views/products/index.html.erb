@@ -9,8 +9,8 @@
           <div class="row">
             <% @products.each do |product| %>
                 <div id="bike-container" class="col-xs-4">
-                  <h4 id="bike_model"><%= product.model %></h4>
-                  <div id="bike_photo"><%= product.image %></div>
+                  <h4 id="bike_model"><%= link_to product.model, product%></h4>
+                  <div id="bike_photo"><%= link_to product.image, product%></div>
                </div>
              <% end %>
           </div>

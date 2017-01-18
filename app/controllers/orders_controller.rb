@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = order.all.order_orders_by_creation.reverse
+    @orders = order.all
   end
 
   def show

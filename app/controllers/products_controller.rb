@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = product.all.product_products_by_creation.reverse
+    @products = product.all
   end
 
   def show

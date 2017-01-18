@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
 
   def index
+<<<<<<< HEAD
+    @orders = order.all.order_orders_by_creation.reverse
+=======
     @orders = order.all
+>>>>>>> Added some more controller data
   end
 
   def show

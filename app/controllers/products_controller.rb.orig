@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
+<<<<<<< HEAD
+    @products = product.all.product_products_by_creation.reverse
+=======
     @products = product.all
+>>>>>>> Added some more controller data
   end
 
   def show

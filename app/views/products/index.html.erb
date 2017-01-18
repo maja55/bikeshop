@@ -1,17 +1,19 @@
 <div id="main-container" class="container">
-      <div class="row">
-        <div id="sidebar" class="col-xs-3">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3">
           <p>filters go here, maybe make div into unordered list
             and insert each method to display all filters as list items and
             options as checkboxes within each filter
         </div>
-      </div>
-
-        <div id="products_display">
-          <% @products.each do |product| %>
-              <div id="row" class="col-xs-3">
-                <h4><%= product.model %></h4>
-                <div id="bike_photo"><%= product.image %></div>
-            </div>
+        <div id="products_display" class="col-xs-9">
+          <div class="row">
+            <% @products.each do |product| %>
+                <div id="bike-container" class="col-xs-4">
+                  <h4 id="bike_model"><%= product.model %></h4>
+                  <div id="bike_photo"><%= product.image %></div>
+               </div>
+             <% end %>
+          </div>
         </div>
+    </div>
 </div>

@@ -4,13 +4,17 @@
   <%= link_to "All", products_path %>
   <%= link_to "Mountainbikes", products_path(:category=>"mountainbike") %>
   <%= link_to "Citybikes", products_path(:category=>"citybike") %>
-  <%= link_to "Racebikes", products_path(:category=>"racebike") %>
   <%= link_to "E-bikes", products_path(:category=>"ebike") %>
+  <%= link_to "Racebikes", products_path(:category=>"racebike") %>
+  <br/>
+  <%= link_to "Male", '/products?gender=male&gender=unisex' %>
+  <%= link_to "Female", products_path(:gender=>"female") %>
 
-  <hr>
+  <hr/>
 
 
 <% @products.each do |product| %>
+  <p><%= product.id %></p>
   <p><%= product.brand %></p>
   <p><%= product.model %></p>
   <p><%= product.gender %></p>

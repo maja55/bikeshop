@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   def index
     if params[:category]
       @products = Product.where(:category => params[:category])
+    elsif params[:gender]
+      @products = Product.where(:gender => params[:gender])
     else
       @products = Product.all
     end

@@ -35,9 +35,9 @@ class OrdersController < ApplicationController
       end
     end
 
-    def cart
-      session[:cart] = []
-    end
+    # def cart
+    #   session[:cart] = []
+    # end
 
     private
       def set_order

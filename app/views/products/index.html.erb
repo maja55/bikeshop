@@ -1,19 +1,68 @@
 <div id="main-container" class="container">
-    <div class="row">
-        <div id="sidebar" class="col-sm-3">
-          <p>filters go here, maybe make div into unordered list
-            and insert each method to display all filters as list items and
-            options as checkboxes within each filter</p>
+  <div class="row">
+    <div id="sidebar" class="col-sm-3">
+
+      <h2>Products</h2>
+
+      <form>
+
+        <div class="form-group">
+          <label>Category</label>
+          <br>
+          <label>
+            <input type="radio" name="category" value="mountainbike">
+            Mountainbike
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="category" value="citybike">
+            Citybike
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="category" value="racebike">
+            Racebike
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="category" value="ebike">
+            E-bike
+          </label>
+          <br>
         </div>
-        <div id="products_display" class="col-xs-9">
-          <div class="row">
-            <% @products.each do |product| %>
-                <div id="bike-container" class="col-xs-4">
-                  <h4 id="bike_model"><%= link_to product.model, product%></h4>
-                  <div id="bike_photo"><%= link_to product.image, product%></div>
-               </div>
-             <% end %>
-          </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <br>
+          <label>
+            <input type="radio" name="gender" value="male">
+            Male
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="gender" value="female">
+            Female
+          </label>
+          <br>
         </div>
+
+        <button type="submit" class="btn btn-default">Filter</button>
+        <button class="btn btn-default">Clear filter</button>
+      </form>
     </div>
+
+    <div id="products_display" class="col-xs-9">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div id="bike-container" class="col-xs-4">
+            <img src="http://placehold.it/300x200">
+            <p><strong><%= product.brand %></strong></p>
+            <p><%= product.model %></p>
+            <p><%= product.category %> - <%= product.gender %>
+            <p>€ <%= product.price %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

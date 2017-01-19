@@ -1,9 +1,7 @@
 <h1>Orders</h1>
 
 <% session[:cart].each do |arrayline| %>
-  <% arrayline.each do |line| %>
-        <p><%= line[1] %></p>
-  <% end %>
+    <p><%= arrayline %></p>
 <% end %>
 
 

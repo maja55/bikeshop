@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    @profile = current_user.build_profile(profile_params)
 
     if @profile.save
       redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
@@ -49,7 +49,7 @@ class ProfilesController < ApplicationController
   private
   def set_profile
       @profile = current_user.profile
-    end
+  end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :street_housenr, :postcode, :city, :country)

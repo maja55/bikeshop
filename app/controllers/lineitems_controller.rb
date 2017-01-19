@@ -6,11 +6,15 @@ class LineitemsController < ApplicationController
   def create
     @lineitem = Lineitem.new(lineitem_params)
 
-    if @lineitem.save
+    if cart << @lineitem
       redirect_to @lineitem
     else
       render "new"
     end
+  end
+
+  def cart
+    session[:cart] = []
   end
 
   private

@@ -1,53 +1,50 @@
 class OrdersController < ApplicationController
+  before_action :set_room, only: [:show, :edit, :update]
+    before_action :authenticate_user!, except: [:show]
 
-  def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
-  end
-
-  def new
-    @order = Order.new
-  end
-
-  def create
-    @order = Order.new(order_params)
-
-    if @order.save
-      redirect_to @order
-    else
-      render "new"
+    def index
+      @orders = []
+      Order.all.each do |order|
+        if order.user_id == current_user.id
+          @orders << order
+        end
+      end
     end
-  end
 
-  def edit
-      @order = Order.find(params[:id])
-  end
-
-  def update
-    @order = Order.find(params[:id])
-
-    if @order.update_attributes(order_params)
-      redirect_to @order
-    else
-      render "edit"
+    def show
     end
-  end
 
-  def destroy
-    @order = Order.find(params[:id])
+    def new
+      @order = current_user.orders.build
+    end
 
-    @order.destroy
+    def create
+      @order = current_user.orders.build(order_params)
 
-    redirect_to orders_path
-  end
+      session[:cart].each do |arrayline|
+        arrayline.each do |line|
+          @linetem = Lineitem.new :count => line.count, :product_id => line.productid, :order_id => @order.id
+        end
+      end
 
-  private
 
-  def order_params
-    params.require(:order).permit(:first_name, :last_name,
-    :steert_housenr, :postcode, :city, :country)
-  end
+      if @order.save
+        redirect_to @room, notice: "Room successfully created"
+      else
+        render :new
+      end
+    end
+
+    def cart
+      session[:cart] = []
+    end
+
+    private
+      def set_order
+        @order = Order.find(params[:id])
+      end
+
+      def order_params
+        params.require(:order)
+      end
 end

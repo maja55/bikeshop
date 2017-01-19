@@ -1,19 +1,19 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = order.all
+    @orders = Order.all
   end
 
   def show
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def new
-    @order = order.new
+    @order = Order.new
   end
 
   def create
-    @order = order.new(order_params)
+    @order = Order.new(order_params)
 
     if @order.save
       redirect_to @order
@@ -23,11 +23,11 @@ class OrdersController < ApplicationController
   end
 
   def edit
-      @order = order.find(params[:id])
+      @order = Order.find(params[:id])
   end
 
   def update
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
 
     if @order.update_attributes(order_params)
       redirect_to @order
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
 
     @order.destroy
 

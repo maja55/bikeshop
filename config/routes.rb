@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :users, only: [:show]
-  resources :profiles
+  resources :profiles, only: [:new, :edit, :create, :update]
   resources :orders
 
   get 'pages/home'

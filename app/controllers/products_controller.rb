@@ -8,8 +8,6 @@ class ProductsController < ApplicationController
       # @products = Product.where(:category => params[:category])
     end
 
-
-
     if params[:gender]
       filter_params[:gender] = [params[:gender], 'unisex']
       # @products = Product.where(:gender => params[:gender])

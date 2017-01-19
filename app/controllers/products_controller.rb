@@ -1,13 +1,25 @@
 class ProductsController < ApplicationController
 
   def index
+    filter_params = {}
+
     if params[:category]
-      @products = Product.where(:category => params[:category])
-    elsif params[:gender]
-      @products = Product.where(:gender => params[:gender])
-    else
-      @products = Product.all
+      filter_params[:category] = params[:category]
+      # @products = Product.where(:category => params[:category])
     end
+
+
+
+    if params[:gender]
+      filter_params[:gender] = [params[:gender], 'unisex']
+      # @products = Product.where(:gender => params[:gender])
+    end
+
+    @products = Product.where(filter_params)
+
+    #
+    #   @products = Product.all
+    # end
   end
 
   def show

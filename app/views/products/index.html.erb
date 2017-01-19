@@ -7,11 +7,56 @@
   <%= link_to "E-bikes", products_path(:category=>"ebike") %>
   <%= link_to "Racebikes", products_path(:category=>"racebike") %>
   <br/>
-  <%= link_to "Male", '/products?gender=male&gender=unisex' %>
-  <%= link_to "Female", products_path(:gender=>"female") %>
+  <%= link_to "Male", products_path(gender: ["male", "unisex"]) %>
+  <%= link_to "Female", products_path(gender: ["female", "unisex"]) %>
 
   <hr/>
 
+<form>
+
+  <div class="form-group">
+    <label>Category</label>
+    <br>
+    <label>
+      <input type="radio" name="category" value="mountainbike">
+      Mountainbike
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="category" value="citybike">
+      Citybike
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="category" value="racebike">
+      Racebike
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="category" value="ebike">
+      E-bike
+    </label>
+    <br>
+  </div>
+
+  <div class="form-group">
+    <label>Gender</label>
+    <br>
+    <label>
+      <input type="radio" name="gender" value="male">
+      Male
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="gender" value="female">
+      Female
+    </label>
+    <br>
+  </div>
+
+  <button type="submit" class="btn btn-default">Filter</button>
+  <br>
+</form>
 
 <% @products.each do |product| %>
   <p><%= product.id %></p>

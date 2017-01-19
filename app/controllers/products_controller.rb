@@ -22,6 +22,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def cart
+    session[:cart] = []
+  end
+
   def edit
       @product = Product.find(params[:id])
   end

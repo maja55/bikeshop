@@ -1,1 +1,19 @@
-to be created
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @product.model %></div>
+
+    <div class="panel-body">
+
+      <p><strong>Brand:</strong> <%= @product.brand %></p>
+      <p><strong>Price:</strong> €<%= @product.price %></p>
+      <p><strong>Category:</strong> <%= @product.category %></p>
+      <p><strong>Gender:</strong> <%= @product.gender %></p>
+      <p><strong>Frame:</strong> <%= @product.frame %> centimers</p>
+      <p>Image: <%= @product.image %></p>
+
+    </div>
+  <div>
+    <h2><span class="label label-success">I want it!</span></h2>
+  </div>
+</div>
+
+<%= link_to "Back", products_path, class: "btn btn-default" %>

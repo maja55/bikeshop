@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  before_action :set_profile, only: [:edit, :update]
+  before_action :authenticate_user!
+
   def index
     @profiles = Profile.all
   end
@@ -15,7 +18,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
 
     if @profile.save
-      redirect_to @profile
+      redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
     else
       render "new"
     end
@@ -29,7 +32,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     if @profile.update_attributes(profile_params)
-      redirect_to @profile
+      redirect_to edit_profile_path(@profile), notice: "Profile successfully updated"
     else
       render "edit"
     end
@@ -44,9 +47,11 @@ class ProfilesController < ApplicationController
   end
 
   private
+  def set_profile
+      @profile = current_user.profile
+    end
 
   def profile_params
-    params.require(:profile).permit(:model, :brand,
-    :price, :category, :gender, :frame, :image)
+    params.require(:profile).permit(:first_name, :last_name, :street_housenr, :postcode, :city, :country)
   end
 end

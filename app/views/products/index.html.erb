@@ -59,7 +59,7 @@
       <div class="row">
         <% @products.each do |product| %>
           <div id="bike-container" class="col-xs-4">
-            <div id="bike_photo"><%= image_tag product.photos.first.image %></div>
+            <div id="bike_photo"><%= image_tag product.photos.first.image.thumbnail %></div>
             <h4 id="bike_model"><%= link_to product.model, product %></h4>
             <p><strong><%= product.brand %></strong></p>
             <p><%= product.category %> - <%= product.gender %>

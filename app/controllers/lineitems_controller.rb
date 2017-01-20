@@ -7,16 +7,16 @@ class LineitemsController < ApplicationController
   def create
     @lineitem = Lineitem.new(lineitem_params)
 
-    if cart.push(@lineitem)
+    if (session[:cart] ||= []) << @lineitem
       redirect_to orders_path, notice: "Added to your shopping cart!"
     else
       render "new"
     end
   end
 
-  def cart
-    session[:cart] = []
-  end
+  # def cart
+  #   session[:cart] = []
+  # end
 
   private
   def lineitem_params

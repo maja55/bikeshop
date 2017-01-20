@@ -1,0 +1,8 @@
+<h1>Orders</h1>
+
+<% session[:cart].each do |arrayline| %>
+    <p><%= arrayline["product_id"] %> - <%= arrayline["count"] %></p>
+<% end %>
+
+
+<%= link_to "[Create]", new_order_path %>

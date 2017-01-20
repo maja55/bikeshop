@@ -1,5 +1,21 @@
-<h2><% product.model %></h2>
-<h4>Photos</h4>
-<% @product.photos.each do |photo| %>
-  <%= image_tag photo.photo %>
-<% end %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @product.model %></div>
+
+    <div class="panel-body">
+
+      <p><strong>Brand:</strong> <%= @product.brand %></p>
+      <p><strong>Price:</strong> €<%= @product.price %></p>
+      <p><strong>Category:</strong> <%= @product.category %></p>
+      <p><strong>Gender:</strong> <%= @product.gender %></p>
+      <p><strong>Frame:</strong> <%= @product.frame %> centimers</p>
+      <div id="photos"><% @product.photos.each do |photo| %>
+        <%= image_tag photo.photo %>
+        <% end %></div>
+
+    </div>
+  <div>
+    <h2><span class="label label-success"><%= link_to "I want it!", new_lineitem_path(:product_id => @product.id) %></span></h2>
+  </div>
+</div>
+
+<%= link_to "Back", products_path, class: "btn btn-default" %>

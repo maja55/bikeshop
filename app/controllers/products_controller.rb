@@ -1,8 +1,18 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
-    
+    filter_params = {}
+
+    if params[:category]
+      filter_params[:category] = params[:category]
+    end
+
+    if params[:gender]
+      filter_params[:gender] = [params[:gender], 'unisex']
+    end
+
+    @products = Product.where(filter_params)
+    @products.order(params[:sort])
   end
 
   def show

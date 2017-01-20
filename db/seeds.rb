@@ -14,7 +14,8 @@ maja = Profile.create!({ first_name: "Maja", last_name: "Podrug", street_housenr
 stefan = Profile.create!({ first_name: "Stefan", last_name: "Kollaart", street_housenr: "Non Existend Road 345", postcode: "5678LO", city: "London", country: "United Kingdom"} )
 nick = Profile.create!({ first_name: "Nick", last_name: "Winkelman", street_housenr: "Made Up Avenue 456", postcode: "7890PA", city: "Paris", country: "France"} )
 
-photo1 = Photo.create(remote_image_url:"http://res.cloudinary.com/maja55/image/upload/v1484848970/1_im62ga.jpg")
+photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848970/1_im62ga.jpg")
+photo1_2 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484915267/photo1.1_gvueux.jpg")
 photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848966/2_mzf0ja.jpg")
 photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848969/3_gxx9m2.jpg")
 photo4 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848969/4_ry0tbh.jpg")
@@ -42,7 +43,7 @@ photo22 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image
 photo23 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848967/23_fus3qt.jpg")
 photo24 = Photo.create(remote_image_url: "http://res.cloudinary.com/maja55/image/upload/v1484848968/24_c6fbjm.jpg")
 
-product1 = Product.create!({ photos: [photo1], brand: "Votec", model: "MTB Hardtail Pro", price: 1999, category: "mountainbike", gender: "unisex", frame: "45"})
+product1 = Product.create!({ photos: [photo1, photo1_2], brand: "Votec", model: "MTB Hardtail Pro", price: 1999, category: "mountainbike", gender: "unisex", frame: "45"})
 product2 = Product.create!({ photos: [photo2], brand: "Haibike", model: "XDURO Hardseven", price: 3999, category: "mountainbike", gender: "unisex", frame: "40" })
 product3 = Product.create!({ photos: [photo3], brand: "Cube", model: "Elite C:62 Race", price: 2999, category: "mountainbike", gender: "unisex", frame: "48" })
 product4 = Product.create!({ photos: [photo4], brand: "Cube", model: "Aim Allroad", price: 499, category: "mountainbike", gender: "unisex", frame: "46" })

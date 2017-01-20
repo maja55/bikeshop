@@ -1,1 +1,5 @@
-to be created
+<h2><% product.model %></h2>
+<h4>Photos</h4>
+<% @product.photos.each do |photo| %>
+  <%= image_tag photo.photo %>
+<% end %>

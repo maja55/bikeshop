@@ -25,15 +25,12 @@
              @lineitem = Lineitem.new(:product_id => arrayline["product_id"], :count => arrayline["count"], :order_id => @order.id)
              @lineitem.save
         end
-        redirect_to @order, notice: "Order successfully created"
+        session[:cart] = []
+        redirect_to orders_path, notice: "Order successfully created"
       else
         render :new
       end
     end
-
-    # def cart
-    #   session[:cart] = []
-    # end
 
     private
       def order_params

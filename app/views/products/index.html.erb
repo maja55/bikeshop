@@ -52,6 +52,9 @@
     </div>
 
     <div id="products_display" class="col-xs-9">
+      <p><%= link_to "Order by brand", :sort => "brand"%></p>
+      <p><%= link_to "Order by price", :sort => "price"%></p>
+
       <div class="row">
         <% @products.each do |product| %>
           <div id="bike-container" class="col-xs-4">

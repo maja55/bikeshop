@@ -1,0 +1,10 @@
+<h1>Shoping Cart</h1>
+<% session[:cart].each do |arrayline| %>
+  <% Product.all.each do |myproduct| %>
+    <% if myproduct.id == arrayline["product_id"] %>
+      <%= myproduct.model %> <hr>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "Check-out", new_order_path, class: "btn btn-default" %>

@@ -6,6 +6,7 @@ class LineitemsController < ApplicationController
 
   def create
     @lineitem = Lineitem.new(lineitem_params)
+    @lineitem.product_id = params[:product_id]
 
     if cart.push(@lineitem)
       redirect_to orders_path, notice: "Added to your shopping cart!"
@@ -20,6 +21,6 @@ class LineitemsController < ApplicationController
 
   private
   def lineitem_params
-    params.require(:lineitem).permit(:product_id, :count)
+    params.require(:lineitem).permit(:count, :product_id)
   end
 end

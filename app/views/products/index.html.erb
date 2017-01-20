@@ -58,9 +58,9 @@
       <div class="row">
         <% @products.each do |product| %>
           <div id="bike-container" class="col-xs-4">
-            <img src="http://placehold.it/300x200">
+            <div id="bike_photo"><%= image_tag product.photos.first.image %></div>
+            <h4 id="bike_model"><%= link_to product.model, product %></h4>
             <p><strong><%= product.brand %></strong></p>
-            <p><%= product.model %></p>
             <p><%= product.category %> - <%= product.gender %>
             <p>€ <%= product.price %></p>
           </div>

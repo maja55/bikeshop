@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update]
     before_action :authenticate_user!, except: [:show]
 
     def index
@@ -15,21 +14,22 @@ class OrdersController < ApplicationController
     end
 
     def new
-      @order = current_user.orders.build
+      @order = Order.new
     end
 
     def create
       @order = current_user.orders.build(order_params)
 
-      session[:cart].each do |arrayline|
-        arrayline.each do |line|
-          @linetem = Lineitem.new :count => line.count, :product_id => line.productid, :order_id => @order.id
-        end
-      end
-
-
       if @order.save
-        redirect_to @room, notice: "Room successfully created"
+        session[:cart].each do |arrayline|
+            @lineitem = Lineitem.create(:product_id => arrayline["product_id"], :count => arrayline["count"], :order_id => @order.id)
+            if @lineitem.save
+              debugger
+            else
+              debugger
+            end
+        end
+        redirect_to @order, notice: "Order successfully created"
       else
         render :new
       end
@@ -40,11 +40,7 @@ class OrdersController < ApplicationController
     # end
 
     private
-      def set_order
-        @order = Order.find(params[:id])
-      end
-
       def order_params
-        params.require(:order)
+        params.require(:order).permit(:user_id)
       end
 end

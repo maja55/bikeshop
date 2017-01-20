@@ -13,10 +13,6 @@ class LineitemsController < ApplicationController
     end
   end
 
-  # def cart
-  #   session[:cart] = []
-  # end
-
   private
   def lineitem_params
     params.require(:lineitem).permit(:product_id, :count)

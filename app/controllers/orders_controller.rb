@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+  class OrdersController < ApplicationController
     before_action :authenticate_user!, except: [:show]
 
     def index
@@ -22,12 +22,8 @@ class OrdersController < ApplicationController
 
       if @order.save
         session[:cart].each do |arrayline|
-            @lineitem = Lineitem.create(:product_id => arrayline["product_id"], :count => arrayline["count"], :order_id => @order.id)
-            if @lineitem.save
-              debugger
-            else
-              debugger
-            end
+             @lineitem = Lineitem.new(:product_id => arrayline["product_id"], :count => arrayline["count"], :order_id => @order.id)
+             @lineitem.save
         end
         redirect_to @order, notice: "Order successfully created"
       else

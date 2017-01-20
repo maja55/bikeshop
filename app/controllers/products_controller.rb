@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     end
 
     @products = Product.where(filter_params)
-    @products.order(params[:sort])
+    @products = @products.order(params[:sort])
   end
 
   def show

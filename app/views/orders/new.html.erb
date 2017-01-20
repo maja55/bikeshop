@@ -1,0 +1,11 @@
+<%= form_for @order do |f| %>
+
+  <div class = "form-group">
+    <%= f.hidden_field :user_id, placeholder: current_user.id, class: "form-control" %>
+  </div>
+
+<div class="actions">
+<%= f.submit "Save", class: "btn btn-primary" %>
+<%= link_to "Back", root_path, class: "btn btn-default" %>
+</div>
+<% end %>

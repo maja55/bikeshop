@@ -1,53 +1,46 @@
 class OrdersController < ApplicationController
+    before_action :authenticate_user!, except: [:show]
 
-  def index
-    @orders = Order.all
-  end
-
-  def show
-    @order = Order.find(params[:id])
-  end
-
-  def new
-    @order = Order.new
-  end
-
-  def create
-    @order = Order.new(order_params)
-
-    if @order.save
-      redirect_to @order
-    else
-      render "new"
+    def index
+      @orders = []
+      Order.all.each do |order|
+        if order.user_id == current_user.id
+          @orders << order
+        end
+      end
     end
-  end
 
-  def edit
-      @order = Order.find(params[:id])
-  end
-
-  def update
-    @order = Order.find(params[:id])
-
-    if @order.update_attributes(order_params)
-      redirect_to @order
-    else
-      render "edit"
+    def show
     end
-  end
 
-  def destroy
-    @order = Order.find(params[:id])
+    def new
+      @order = Order.new
+    end
 
-    @order.destroy
+    def create
+      @order = current_user.orders.build(order_params)
 
-    redirect_to orders_path
-  end
+      if @order.save
+        session[:cart].each do |arrayline|
+            @lineitem = Lineitem.create(:product_id => arrayline["product_id"], :count => arrayline["count"], :order_id => @order.id)
+            if @lineitem.save
+              debugger
+            else
+              debugger
+            end
+        end
+        redirect_to @order, notice: "Order successfully created"
+      else
+        render :new
+      end
+    end
 
-  private
+    # def cart
+    #   session[:cart] = []
+    # end
 
-  def order_params
-    params.require(:order).permit(:first_name, :last_name,
-    :steert_housenr, :postcode, :city, :country)
-  end
+    private
+      def order_params
+        params.require(:order).permit(:user_id)
+      end
 end

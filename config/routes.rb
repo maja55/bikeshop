@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :users, only: [:show]
-  resources :profiles
-  resources :orders
+  resources :profiles, only: [:new, :edit, :create, :update]
+  resources :orders do
+    resources :lineitems
+  end
   resources :photos
   resources :lineitems
 

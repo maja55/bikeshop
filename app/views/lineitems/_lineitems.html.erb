@@ -1,0 +1,11 @@
+<% if session[:cart] == [] %>
+  There's nothing in your cart. <%= link_to "Go shopping!", products_path %> <hr>
+<% else %>
+  <% session[:cart].each do |arrayline| %>
+    <% Product.all.each do |myproduct| %>
+      <% if myproduct.id == arrayline["product_id"] %>
+        <%= arrayline["count"] %>x - <%= myproduct.model %><hr>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

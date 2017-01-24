@@ -1,11 +1,11 @@
 require 'rails_helper'
 
   describe "Validating profile entries" do
-    let(:user1)     { create(:user) }
-    let!(:profile1) { create(:profile, user_id: user1.id) }
+    let!(:bike)      { create(:product) }
+    let!(:lineitem1) { create(:lineitem, product_id: bike.id) }
 
     it "Should be valid" do
-      expect(profile1).to be_valid
+      expect(lineitem1).to be_valid
     end
 
     it "Should not be valid without first_name" do

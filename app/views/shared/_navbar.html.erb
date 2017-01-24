@@ -19,10 +19,8 @@
         <% else %>
         <li class="dropdown">
           <%= link_to(lineitems_path) do %>
-            Shopping Cart (<%= session[:cart].count %>)
+            Shopping Cart (<%= (session[:cart] ||= []).count %>)
           <% end %>
-
-
         </li>
 
         <li class="dropdown">

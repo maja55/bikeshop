@@ -17,6 +17,14 @@ class LineitemsController < ApplicationController
 
   end
 
+  def destroy
+    @lineitem = Lineitems.find(params[:id])
+
+    @lineitem.destroy
+
+    redirect_to lineitems_path
+  end
+
   private
   def lineitem_params
     params.require(:lineitem).permit(:product_id, :count)

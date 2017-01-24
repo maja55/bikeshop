@@ -1,8 +1,19 @@
 <h1>Orders</h1>
 
-<% session[:cart].each do |arrayline| %>
-    <p><%= arrayline["product_id"] %> - <%= arrayline["count"] %></p>
+<% current_user.orders.each do |order| %>
+  <p><strong>Order number:</strong> <%= order.id %></p>
+  <p><strong>Items:</strong>
+    <% Lineitem.all.each do |line| %>
+      <% if line.order_id == order.id %>
+        <% Product.all.each do |product| %>
+          <% if product.id == line.product_id %>
+          <li>
+            <%= line.count %>x <%= product.model %> <%= product.brand %>
+          </li>
+          <% end %>
+        <% end %>
+    <% end %>
+  <% end %>
+  </p>
+  <hr>
 <% end %>
-
-
-<%= link_to "[Create]", new_order_path %>

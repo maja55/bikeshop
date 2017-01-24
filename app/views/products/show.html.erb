@@ -8,9 +8,12 @@
       <p><strong>Category:</strong> <%= @product.category %></p>
       <p><strong>Gender:</strong> <%= @product.gender %></p>
       <p><strong>Frame:</strong> <%= @product.frame %> centimers</p>
-      <div id="photos"><% @product.photos.each do |photo| %>
-        <%= image_tag photo.image %>
-        <% end %></div>
+
+      <div class="photos">
+          <% @product.photos.each do |photo| %>
+          <%= image_tag photo.image.medium %>
+          <% end %>
+      </div>
 
     </div>
   <div>

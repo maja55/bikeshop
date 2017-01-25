@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :lineitems
   end
   resources :photos
-  resources :lineitems
+  resources :lineitems do
+    collection do
+        get :clearcart
+    end
+  end
 
   root to: 'products#index'
 

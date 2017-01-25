@@ -1,0 +1,26 @@
+<%= form_for @lineitem do |f| %>
+  <!-- <% @lineitem.errors.full_messages.each do |msg| %>
+    <p class="alert alert-danger"><%= msg %></p>
+  <% end %> -->
+
+  <div class="form-group">
+    <label>Product</label><br>
+    <% Product.all.each do |prod| %>
+      <% if prod.id == @lineitem.product_id %>
+        <%= prod.model %>
+        <%= f.hidden_field :product_id, placeholder: @lineitem.product_id, class: "form-control" %>
+      <% end %>
+    <% end %>
+
+  </div>
+
+  <div class="form-group">
+  <label>Amount</label>
+  <%= f.text_field :count, placeholder: "Amount", class: "form-control" %>
+</div>
+
+  <div class="actions">
+  <%= f.submit "Save", class: "btn btn-primary" %>
+  <%= link_to "Back", root_path, class: "btn btn-default" %>
+</div>
+<% end %>

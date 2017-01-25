@@ -1,9 +1,4 @@
-class LineitemsController < ApplicationController
-  def new
-    @lineitem = Lineitem.new
-    @lineitem.product_id = params[:product_id]
-  end
-
+class ShoppingCartController < ApplicationController
   def create
     @lineitem = Lineitem.new(lineitem_params)
     if (session[:cart] ||= []) << @lineitem
@@ -13,8 +8,16 @@ class LineitemsController < ApplicationController
     end
   end
 
-  def clearcart
-    session[:cart] = []
+  def new
+    @lineitem = Lineitem.new
+    @lineitem.product_id = params[:product_id]
+  end
+
+  def destroy
+    @lineitem = Lineitems.find(params[:id])
+
+    @lineitem.destroy
+
     redirect_to lineitems_path
   end
 
@@ -22,4 +25,6 @@ class LineitemsController < ApplicationController
   def lineitem_params
     params.require(:lineitem).permit(:product_id, :count)
   end
+
+
 end

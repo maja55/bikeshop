@@ -4,7 +4,7 @@
   <% session[:cart].each do |arrayline| %>
     <% Product.all.each do |myproduct| %>
       <% if myproduct.id == arrayline["product_id"] %>
-        <%= arrayline["count"] %>x - <%= myproduct.model %><hr>
+        * <%= arrayline["count"] %>x - <%= myproduct.model %> <br>
       <% end %>
     <% end %>
   <% end %>

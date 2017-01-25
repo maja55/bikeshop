@@ -1,3 +1,44 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container1 {
+  background-color: #f8f8f8;
+  margin: 0px auto;
+  width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 1em;
+}
+
+#products_display {
+  background-color: white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#bike-container {
+  padding: 1em;
+}
+
+.bike_info {
+  -webkit-box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.25);
+  box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.25);
+  padding-bottom: 1em;
+}
+
+.bike_info {
+  line-height: 1em;
+}
+
+#bike_model {
+  background-color: #f8f8f8;
+  color: black;
+  height: 2.5em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}

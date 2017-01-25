@@ -12,6 +12,14 @@
   font-weight: normal;
 }
 
+img {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    padding: 1em;
+    display: block;
+}
+
 
 #products_display {
   background-color: white;
@@ -28,10 +36,12 @@
   -moz-box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.25);
   box-shadow: 2px 2px 14px 0px rgba(0,0,0,0.25);
   padding-bottom: 1em;
+  margin: 0 auto;
 }
 
 .bike_info {
   line-height: 1em;
+  width: 100%;
 }
 
 #bike_model {

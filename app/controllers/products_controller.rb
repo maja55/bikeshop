@@ -11,6 +11,10 @@ class ProductsController < ApplicationController
       filter_params[:gender] = [params[:gender], 'unisex']
     end
 
+    if params[:brand]
+      filter_params[:brand] = params[:brand]
+    end
+
     @products = Product.where(filter_params)
     @products = @products.order(params[:sort])
   end

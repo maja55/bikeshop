@@ -8,11 +8,10 @@
   width: 100%;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    padding: 1em;
+.sub_label {
+  font-weight: normal;
 }
+
 
 #products_display {
   background-color: white;
@@ -41,4 +40,10 @@ img {
   height: 2.5em;
   padding-top: 1em;
   padding-bottom: 2em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    padding: 1em;
 }

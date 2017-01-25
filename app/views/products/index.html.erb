@@ -1,31 +1,30 @@
 
 <div class="row-1">
     <div id="sidebar" class="col-sm-2">
-        <p class="sorting"><%= link_to "Sort by brand", :sort => "brand", :category => params[:category], :gender => params[:gender]%></p>
-        <p class="sorting"><%= link_to "Sort by price", :sort => "price", :category => params[:category], :gender => params[:gender]%></p>
-       <br>
-
+        <p class="sorting"><strong><%= link_to "Sort by brand", :sort => "brand", :category => params[:category], :gender => params[:gender]%></strong></p>
+        <p class="sorting"><strong><%= link_to "Sort by price", :sort => "price", :category => params[:category], :gender => params[:gender]%></strong></p>
+<hr>
       <form>
 
         <div class="form-group">
           <label>Category</label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="category" value="mountainbike">
             Mountainbike
           </label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="category" value="citybike">
             Citybike
           </label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="category" value="racebike">
             Racebike
           </label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="category" value="ebike">
             E-bike
           </label>
@@ -36,14 +35,79 @@
         <div class="form-group">
           <label>Gender</label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="gender" value="male">
             Male
           </label>
           <br>
-          <label>
+          <label class="sub_label">
             <input type="radio" name="gender" value="female">
             Female
+          </label>
+          <br>
+        </div>
+
+        <div class="form-group">
+          <label>Brand</label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Cube">
+            Cube
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Creme">
+            Creme
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Electra">
+            Electra
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Focus">
+            Focus
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Haibike">
+            Haibike
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Hawk">
+            Hawk
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Liv">
+            Liv
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Ortler">
+            Ortler
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Serious">
+            Serious
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Sinus">
+            Sinus
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Vermont">
+            Vermont
+          </label>
+          <br>
+          <label class="sub_label">
+            <input type="radio" name="brand" value="Votec">
+            Votec
           </label>
           <br>
         </div>
@@ -51,7 +115,9 @@
         <button type="submit" class="btn btn-default">Filter</button>
         <button class="btn btn-default">Clear filter</button>
       </form>
+      <hr>
     </div>
+
 
     <div id="products_display" class="col-xs-10">
 

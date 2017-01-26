@@ -1,9 +1,18 @@
 
 <div class="row-1">
     <div id="sidebar" class="col-sm-2">
+
+      <form  method="get" action="/search" id="search">
+  <input id="txtSearch" name="q" type="text" placeholder="Search..." value=""/>
+      </form>
+
+    <hr>
+
         <p class="sorting"><strong><%= link_to "Sort by brand", :sort => "brand", :category => params[:category], :gender => params[:gender]%></strong></p>
         <p class="sorting"><strong><%= link_to "Sort by price", :sort => "price", :category => params[:category], :gender => params[:gender]%></strong></p>
-<hr>
+
+    <hr>
+
       <form>
 
         <div class="form-group">
@@ -46,6 +55,15 @@
           </label>
           <br>
         </div>
+
+      <!-- <div class="form-group">
+        <label for="amount">Price range:</label>
+          <input type="text" id="amount" />
+        <div id="slider-range">
+          <input type="range" name="price-min" id="price-min" value="0" min="0" max="1000">
+          <input type="range" name="price-max" id="price-max" value="1000" min="0" max="1000">
+        </div>
+      </div> -->
 
         <div class="form-group">
           <label>Brand</label>
@@ -137,3 +155,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+ document.getElementById('search').onsubmit = function() {
+     window.location = 'http://www.google.com/search?q=site:localhost:3000/ ' + document.getElementById('txtSearch').value;
+     return false;
+ }
+</script>

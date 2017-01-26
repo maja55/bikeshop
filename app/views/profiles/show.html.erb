@@ -1,12 +1,17 @@
-<h1><%= current_user.full_name %>
+<div class="profile">
+
+  <h1><%= current_user.full_name %>
+<br>
+<br>
 <hr>
+
   <h3>Address</h3>
     <p><%= @profile.street_housenr %></p>
     <p><%= @profile.postcode + " " + @profile.city%></p>
     <p><%= @profile.country%></p>
     <p><%= link_to "Edit your address", edit_profile_path(@profile), class: "btn btn-default" %></p>
 <hr>
-
+<br>
   <h3>Orders History</h3>
   <br>
     <% current_user.orders.each do |order|%>
@@ -14,24 +19,21 @@
       <p>Order number: <strong><%= order.id %></p></strong>
       <p>Date: <%= order.created_at.strftime("%d-%m-%Y") %></p>
         Items:
-
-        <div class="row">
           <br>
+        <ul>
           <% Lineitem.all.each do |line| %>
-          <div class="col-xs-4">
             <% if line.order_id == order.id %>
               <% Product.all.each do |product| %>
                 <% if product.id == line.product_id %>
-                <li>
-                  <%= line.count %>x <%= product.model %> <%= product.brand %>
+                 <li>
+                  <%= line.count %>x <%=link_to product.model, product_path(product.id) %> <%= product.brand %>
                 </li>
-                <%= link_to image_tag(product.photos.first.image.thumbnail), product_path(product.id) %>
                 <% end %>
               <% end %>
            <% end %>
-         </div>
       <% end %>
-      </div>
+    </ul>
       <hr>
     </div>
   <% end %>
+</div>

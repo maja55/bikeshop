@@ -1,19 +1,22 @@
-<h1>Orders</h1>
+<div class="orders">
+  
+  <h1>Orders</h1>
 
-<% current_user.orders.each do |order| %>
-  <p><strong>Order number:</strong> <%= order.id %></p>
-  <p><strong>Items:</strong>
-    <% Lineitem.all.each do |line| %>
-      <% if line.order_id == order.id %>
-        <% Product.all.each do |product| %>
-          <% if product.id == line.product_id %>
-          <li>
-            <%= line.count %>x <%= product.model %> <%= product.brand %>
-          </li>
+  <% current_user.orders.each do |order| %>
+    <p><strong>Order number:</strong> <%= order.id %></p>
+    <p><strong>Items:</strong>
+      <% Lineitem.all.each do |line| %>
+        <% if line.order_id == order.id %>
+          <% Product.all.each do |product| %>
+            <% if product.id == line.product_id %>
+            <li>
+              <%= line.count %>x <%= product.model %> <%= product.brand %>
+            </li>
+            <% end %>
           <% end %>
-        <% end %>
+      <% end %>
     <% end %>
+    </p>
+    <hr>
   <% end %>
-  </p>
-  <hr>
-<% end %>
+</div>

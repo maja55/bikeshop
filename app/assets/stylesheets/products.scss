@@ -38,8 +38,9 @@ img {
 
 #products_display {
   background-color: white;
-  padding-top: 1em;
+  padding-top: 0.3em;
   padding-bottom: 1em;
+  border-radius: 10px;
 }
 
 #bike-container {
@@ -76,3 +77,8 @@ img {
 p.sorting {
   color: #777;
 }
+
+div.label-success {
+    background-color: white;
+    margin: 0 auto;
+  }

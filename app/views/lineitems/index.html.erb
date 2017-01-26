@@ -1,10 +1,14 @@
-<h1>Shoping Cart</h1>
+<div class="shopping_cart">
+    <h1 class="cart_heading"> <img src="http://res.cloudinary.com/maja55/image/upload/v1485390213/13706-200_copy_b5krhl.png" class="cart-heading-logo">
+    Your Shoping Cart </h1>
 <hr>
 <% if session[:cart] == [] %>
   There's nothing in your cart. <%= link_to "Go shopping!", products_path %> <hr>
 <% else %>
   <%= render 'lineitems/lineitems' %>
   <%= link_to 'Clear cart', clearcart_lineitems_path, class: "btn btn-default"%>
+  <%= link_to "Continue shopping", products_path, class: "btn btn-default" %>
 <% end %>
 
 <%= link_to "Check-out", new_order_path, class: "btn btn-default" %>
+</div>

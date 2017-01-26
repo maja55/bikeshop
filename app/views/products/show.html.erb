@@ -16,9 +16,9 @@
       </div>
 
     </div>
-  <div>
-    <h2><span class="label label-success"><%= link_to "I want it!", new_lineitem_path(:product_id => @product.id) %></span></h2>
+  <div class="label-success">
+    <h5 align:"center"><%= link_to "I want it!", new_lineitem_path(:product_id => @product.id), class: "btn btn-default" %><h5>
   </div>
 </div>
 
-<%= link_to "Back", products_path, class: "btn btn-default" %>
+<%= link_to "Back", products_path, class: "btn btn-default"%>

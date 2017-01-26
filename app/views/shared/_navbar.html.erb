@@ -27,6 +27,9 @@
             <li style="text-align: center; margin-left: 10px; margin-right: 10px; margin-top: 10px;"><%= render '/lineitems/lineitemsindex' %>
               <li role="separator" class="divider"></li>
               <li style="text-align: center; margin: 10px;">
+              <%= link_to 'View cart',lineitems_path, class: "btn btn-default"%>
+              <li role="separator" class="divider"></li>
+              <li style="text-align: center; margin: 10px;">
               <%= link_to 'Clear cart', clearcart_lineitems_path, class: "btn btn-default"%>
               <li role="separator" class="divider"></li>
               <li style="text-align: center; margin: 10px;">

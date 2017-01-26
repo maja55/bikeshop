@@ -1,3 +1,21 @@
 // Place all the styles related to the lineitems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.shopping_cart {
+    margin: 0% 25%;
+    background-color: white;
+    padding: 25px;
+    padding-top: 5px;
+    border-radius: 10px;
+  }
+
+img.cart-heading-logo {
+    width: 20%;
+    margin: 0;
+    padding: 0 0 2% 0;
+    display: inline;
+}
+
+h1.cart-heading {
+  margin: 0;
+}

@@ -4,9 +4,24 @@
 
 .container1 {
   background-color: #f8f8f8;
-  margin: 0px auto;
-  width: 100%;
+  padding-left: 3%;
 }
+
+
+#search input[type="text"] {
+    border: 1px solid #d1d1d1;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #bebebe;
+    width: 100%;
+    padding: 6px 15px 6px 15px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    }
 
 .sub_label {
   font-weight: normal;
@@ -46,4 +61,8 @@ img {
     max-width: 100%;
     height: auto;
     padding: 1em;
+}
+
+p.sorting {
+  color: #777;
 }

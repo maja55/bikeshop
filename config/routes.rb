@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'products#index'
+  get 'pages/home'
 
 end
